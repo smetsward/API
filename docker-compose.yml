@@ -1,8 +1,6 @@
-version: "3"
-
+version: "3.9"
 services:
-  app:
-    build: .
-    command: /usr/local/bin/python -m pip install --upgrade pip && pip install "fastapi[all]"
-    ports:
-      - "8080:8080"
+ randomizer-service:
+  image: miverboven/python-api-test
+  ports:
+    - "8000:8000"
