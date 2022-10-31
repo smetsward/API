@@ -1,6 +1,4 @@
 FROM python:3.10.4
-WORKDIR /app
-COPY requirements.txt .
 RUN pip install "fastapi[all]"
-COPY . .
+RUN /usr/local/bin/python -m pip install --upgrade pip
 EXPOSE 8080
