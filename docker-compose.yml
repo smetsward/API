@@ -4,14 +4,33 @@ services:
     image: wardsmetscode/python-api-test
     ports:
       - "80:80"
-  db:
-    image: postgres
+#  db:
+#    image: postgres
+#    restart: always
+#    environment:
+#      POSTGRES_PASSWORD: example
+#
+#  adminer:
+#    image: adminer
+#    restart: always
+#    ports:
+#      - "8080:8080"
+
+  mysql:
+    image: mysql
     restart: always
     environment:
-      POSTGRES_PASSWORD: example
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: stt_db
+    ports:
+      - "3306:3306"
 
-  adminer:
-    image: adminer
+  phpmyadmin:
+    image: phpmyadmin
     restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: password
     ports:
       - "8080:8080"
