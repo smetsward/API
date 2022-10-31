@@ -12,10 +12,7 @@ services:
     image: nginx:alpine
     ports:
       - "8080:80"
-    volumes:
-      - ./public_html:/public_html
-      - ./conf.d:/etc/nginx/conf.d
-      - /etc/localtime:/etc/localtime
+
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4
