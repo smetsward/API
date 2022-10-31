@@ -8,14 +8,14 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres
-  app:
-    build: .
-    volumes:
-      - .:/code
+  web:
+    image: nginx:alpine
     ports:
-      - "8000:8000"
-    depends_on:
-      - postgres
+      - "8080:80"
+    volumes:
+      - ./public_html:/public_html
+      - ./conf.d:/etc/nginx/conf.d
+      - /etc/localtime:/etc/localtime
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4
