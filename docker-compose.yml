@@ -1,6 +1,17 @@
 version: "3.9"
 services:
- app:
-  image: wardsmetscode/python-api-test
-  ports:
-    - "8080:8080"
+  services:
+    image: wardsmetscode/python-api-test
+    ports:
+      - "8080:8080"
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8000:8000"
