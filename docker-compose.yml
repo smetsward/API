@@ -1,25 +1,8 @@
 version: "3"
-services:
-  postgres:
-    image: postgres:11
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=postgres
-  web:
-    image: nginx:alpine
-    ports:
-      - "8080:80"
 
-  pgadmin:
-    container_name: pgadmin
-    image: dpage/pgadmin4
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.org
-      - PGADMIN_DEFAULT_PASSWORD=admin
+services:
+  app:
+    build: .
+    command: uvicorn app.main:app --host 172.0.0.1
     ports:
-      - "5050:80"
-    depends_on:
-      - postgres
+      - "8080:8080"
