@@ -1,26 +1,39 @@
 version: "3.9"
 services:
-  app:
-    image: wardsmetscode/python-api-test
-    ports:
-      - "8080:8080"
-#  db:
-#    image: postgres
-#    restart: always
-#    environment:
-#      POSTGRES_PASSWORD: example
-#
-#  adminer:
-#    image: adminer
-#    restart: always
+ useritem-api-service:
+  image: wardsmetscode/python-api-test
+  ports:
+    - "8000:8000"
+  volumes:
+    - sqlite_useritems_volume:/code/sqlitedb
+
+volumes:
+  sqlite_useritems_volume:
+
+
+#version: "3.9"
+#services:
+#  app:
+#    image: wardsmetscode/python-api-test
 #    ports:
 #      - "8080:8080"
-
-  mysql:
-    image: mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: stt_db
-    ports:
-      - "3306:3306"
+##  db:
+##    image: postgres
+##    restart: always
+##    environment:
+##      POSTGRES_PASSWORD: example
+##
+##  adminer:
+##    image: adminer
+##    restart: always
+##    ports:
+##      - "8080:8080"
+#
+#  mysql:
+#    image: mysql
+#    restart: always
+#    environment:
+#      MYSQL_ROOT_PASSWORD: password
+#      MYSQL_DATABASE: stt_db
+#    ports:
+#      - "3306:3306"
