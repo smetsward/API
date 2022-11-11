@@ -1,8 +1,8 @@
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
-from app import schemas, crud, models
-from app.database import SessionLocal, engine
+from myproject import schemas, crud, models
+from myproject.database import SessionLocal, engine
 import os
 
 if not os.path.exists('.\sqlitedb'):

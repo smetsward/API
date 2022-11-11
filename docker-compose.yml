@@ -13,7 +13,7 @@ volumes:
 
 #version: "3.9"
 #services:
-#  app:
+#  myproject:
 #    image: wardsmetscode/python-api-test
 #    ports:
 #      - "8080:8080"
