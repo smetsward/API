@@ -16,18 +16,18 @@ models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-# origins = [
-#     "https://smetsward.github.io",
-#     "https://smetsward.github.io/alpine.html"
-# ]
-#
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=origins,
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+origins = [
+    "https://smetsward.github.io",
+    "https://smetsward.github.io/alpine.html"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 # Dependency
