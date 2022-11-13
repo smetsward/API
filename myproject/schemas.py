@@ -19,11 +19,12 @@ class Item(ItemBase):
 
 
 class UserBase(BaseModel):
-    email: str
+    name: str
+    surname: str
 
 
 class UserCreate(UserBase):
-    password: str
+    pass
 
 
 class User(UserBase):
