@@ -1,16 +1,16 @@
 from pydantic import BaseModel
 
 
-class ItemBase(BaseModel):
+class TicketBase(BaseModel):
     title: str
     description: str | None = None
 
 
-class ItemCreate(ItemBase):
+class TicketCreate(TicketBase):
     pass
 
 
-class Item(ItemBase):
+class Ticket(TicketBase):
     id: int
     owner_id: int
 
@@ -30,7 +30,7 @@ class UserCreate(UserBase):
 class User(UserBase):
     id: int
     is_active: bool
-    items: list[Item] = []
+    tickets: list[Ticket] = []
 
     class Config:
         orm_mode = True

@@ -12,15 +12,15 @@ class User(Base):
     surname = Column(String, index=True)
     is_active = Column(Boolean, default=True)
 
-    items = relationship("Item", back_populates="owner")
+    tickets = relationship("Ticket", back_populates="owner")
 
 
-class Item(Base):
-    __tablename__ = "items"
+class Ticket(Base):
+    __tablename__ = "tickets"
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)
     description = Column(String, index=True)
     owner_id = Column(Integer, ForeignKey("users.id"))
 
-    owner = relationship("User", back_populates="items")
+    owner = relationship("User", back_populates="tickets")
