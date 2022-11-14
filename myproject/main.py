@@ -61,7 +61,7 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
     return db_user
 
 
-@app.post("/users/{user_id}/tickets/", response_model=schemas.ticket)
+@app.post("/users/{user_id}/tickets/", response_model=schemas.Ticket)
 def create_ticket_for_user(
         user_id: int, ticket: schemas.TicketCreate, db: Session = Depends(get_db)
 ):
