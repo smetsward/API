@@ -21,10 +21,11 @@ class Ticket(TicketBase):
 class UserBase(BaseModel):
     name: str
     surname: str
+    email: str
 
 
 class UserCreate(UserBase):
-    pass
+    password: str
 
 
 class User(UserBase):
