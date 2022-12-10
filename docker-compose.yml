@@ -1,11 +1,11 @@
 version: "3.9"
 services:
- system-service:
-  image: miverboven/python-db-test
+ userticket-api-service:
+  image: wardsmetscode/python-api-test
   ports:
     - "8000:8000"
   volumes:
-    - sqlite_useritems_volume:/code/sqlitedb
+    - sqlite_usertickets_volume:/code/sqlitedb
 
 volumes:
-  sqlite_useritems_volume:
+  sqlite_usertickets_volume:
