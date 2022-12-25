@@ -1,36 +1,59 @@
 from pydantic import BaseModel
 
 
-class TicketBase(BaseModel):
+class ItemBase(BaseModel):
     title: str
     description: str | None = None
 
+    class Config:
+        orm_mode = True
 
-class TicketCreate(TicketBase):
+
+class ItemCreate(ItemBase):
     pass
 
 
-class Ticket(TicketBase):
+class Item(ItemBase):
     id: int
-    owner_id: int
+    item_owner_id: int
+
+    class Config:
+        orm_mode = True
+
+
+class ProductBase(BaseModel):
+    name: str
+    model: str | None = None
+
+    class Config:
+        orm_mode = True
+
+
+class ProductCreate(ProductBase):
+    pass
+
+
+class Product(ProductBase):
+    id: int
+    product_owner_id: int
 
     class Config:
         orm_mode = True
 
 
 class UserBase(BaseModel):
-    name: str
-    surname: str
+    email: str
 
 
 class UserCreate(UserBase):
-    pass
+    password: str
 
 
 class User(UserBase):
     id: int
     is_active: bool
-    tickets: list[Ticket] = []
+    items: list[Item] = []
+    products: list[Product] = []
 
     class Config:
         orm_mode = True
