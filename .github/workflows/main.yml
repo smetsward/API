@@ -16,7 +16,7 @@ jobs:
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Docker Build
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/test-auth:latest .
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/api:latest .
 
       - name: Upload container to Docker Hub with Push
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/test-auth:latest
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/api:latest
